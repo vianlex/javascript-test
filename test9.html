@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Location对象</title>
+</head>
+<body>
+	<hr>
+	<button onclick="goNew()">我可以百度一下么？</button>
+	<hr>
+	<button onclick="getLocation()">得到Loaction对象的一些属性</button>
+	<script>
+		function goNew() { 	
+		window.location.assign("http://www.baidu.com");
+		}
+	function getLocation() {
+		var str1 = window.location.hostname;
+		document.write("Location的hostname：" + str1 + "<hr/>");
+		var str2 = location.href;
+		window.document.write("Location的href：" + str2);
+		var s1 = window.screen.width;
+		var s2 = window.screen.availWidth;
+		document.write("<hr/>" + "整个屏幕的宽度 : " + s1 + "<hr/>" + "可用屏幕的宽度" + s2 );
+		
+	}
+	</script>
+</body>
+</html>

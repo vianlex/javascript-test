@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>JavaScript Test</title>
+</head>
+<style type="text/css">
+	#pid{
+		background:pink;
+	
+		height: 100px;
+		width: 100px;
+	}
+</style>
+<body>
+	<p id = "pid">什么东西啊</p>
+	<div id = "div">
+	<a href="http://baidu.com" id = "aid">百度一下</a>
+	<button id="btn1">按钮1</button>
+	</div>
+<!--<script type="text/javascript">
+		var btn1 = document.getElementById("btn1");
+		// btn1.onclick = function (){ alert("点击事件1")}; //事件被2覆盖
+		// btn1.onclick = function(){alert("点击事件2")}; // 事件2会覆盖事件1，只显示事件2
+		// // btn1.onclick = null;
+		// btn1.addEventListener("click", function(){alert(btn1.addEventListener)}, true);
+
+		if(btn1.addEventListener){
+			btn1.addEventListener("click", function(){alert("支持addEventListener")});		
+		}
+		else if(btn1.attchEvent){
+			btn1.attchEvent("onclick", function(){alert("支持attchEvent")});
+		}else{
+			btn1.onclick = function(){alert("支持onclick属性")};
+		}
+	</script>
+-->
+	<script type="text/javascript">
+	//同一件事件的时候会产生冒泡的；就是执行子元素的事件，后又会查找并执行父元素的事件，像冒泡一样所以称为冒泡事件
+	//事件的捕获：先捕获父元素的事件，在捕获子元素的;
+		var btn1 = document.getElementById("btn1");
+		btn1.addEventListener("click", function(event){
+			alert(event.target);
+			event.stopPropagation();  //阻止事件的冒泡
+		},false);
+
+		var div = document.getElementById("div");
+		var pid = document.getElementById("pid");
+		div.addEventListener("click",function(){ alert("因为事件的冒泡，所以点击btn1的时候也会触发div的点击事件");},false);
+ 
+ 		var aid = document.getElementById("aid");
+ 		aid.addEventListener("click", showA, false);
+		function showA(event){
+				event.stopPropagation();  //阻止事件的冒泡
+				pid.innerHTML = event.bubbles;
+				event.preventDefault(); //阻止属性产生行为如：href点击的时候不会产生链接
+		}
+	</script>
+</body>
+</html>

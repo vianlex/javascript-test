@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>window对象</title>
+</head>
+<body>
+	<hr/>
+	<p id = "pid"></p>
+	<button id="btn3" onclick="stopTime()">停止时间</button>
+	<button id = "btn4" onclick="accTime()">开始计时5S</button>
+	<hr/>
+	<button id = "btnn1" onclick="btn1Click()">按钮1</button>
+	<button id = "bnt2" onclick="btn2Close()">关闭页面</button>
+	<hr/>
+	<script>
+		var str = "I love python";
+		alert(window.str);
+		window.document.write("Hello world!");   // 其中window是可以省去的直接写document.write();
+		window.document.write("<hr/>");
+		window.document.write("宽度 ：" + window.innerWidth + "    " + "高度 : " + window.innerHeight + "<hr/>" );
+		
+		//  打开新的窗口
+		function btn1Click(params) {
+			
+			window.open("test4.html");  //其中的window是可以省略掉的-->open("test4.html"); open总共有3个参数
+			
+		}
+		
+		//关闭当前页面,在试验中IE可以但是chrome不可以关闭
+		function btn2Close() {
+			try{
+			window.close();
+//			throw "什么情况哦运行补了";	
+			}catch(err){
+				alert(err);
+			}
+		}
+		
+     //计时器,用到的方法都是window对象的方法,在调用的时候是可以省略掉window的
+	 document.getElementById("pid").innerHTML = new Date().toLocaleTimeString();
+	 var  myTime = setInterval(getTime, 1000);
+	 function getTime() {
+		 var d  = new Date();
+		 var t = d.toLocaleTimeString();
+		 document.getElementById("pid").innerHTML = t; 
+	 }
+	 
+	 function stopTime() {
+		 clearInterval(myTime);
+	 }
+	 
+	 function accTime() {
+		 setTimeout(function () { alert("5s计时完成"); }, 5000); 
+		 //clearTimeout()可以停止其，递归调用的时候也可以循环执行
+	 }
+	</script>
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>game</title>
+</head>
+<style type="text/css">
+
+	#div{
+		border: 2px solid orange;
+		width: 197px;
+		height: 130px;
+		background: pink;
+		
+	}
+
+	input{
+		color: red;
+		font-size: 20px;
+		width: 60px;
+		height: 30px;
+	}
+</style>
+
+<body>
+	<div id = "div">
+		<input type="button" id="btn0" value="+"></input>
+		<input type="button" id="btn1" value="-"></input>
+		<input type="button" id="btn2" value="-"></input>
+		<hr>
+		<input type="button" id="btn3" value="-"></input>
+		<input type="button" id="btn4"value="+"></input>
+		<input type="button" id="btn5" value="-"></input>
+		<hr>	
+		<input type="button" id="btn6" value="-"></input>
+		<input type="button" id="btn7" value="-"></input>
+		<input type="button" id="btn8" value="-"></input>
+
+	</div>
+
+	<script type="text/javascript">
+	var btn0 = ["btn0", "btn1", "btn3", "btn4"];
+	var btn1 = ["btn0",  "btn2"];
+	var btn2 = ["btn1",  "btn4", "btn5"];
+	var btn3 = ["btn0",  "btn6"];
+	var btn4 = ["btn1", "btn3",  "btn5", "btn7"];
+	var btn5 = ["btn2",  "btn8"];
+	var btn6 = ["btn3", "btn4", "btn7"];
+	var btn7 = ["btn6", "btn8"];
+	var btn8 = ["btn4", "btn5", "btn7"];
+
+	var b0 = document.getElementById("btn0");
+	var b1 = document.getElementById("btn1");
+	var b2 = document.getElementById("btn2");
+	var b3 = document.getElementById("btn3");
+	var b4 = document.getElementById("btn4");
+	var b5 = document.getElementById("btn5");
+	var b6 = document.getElementById("btn6");
+	var b7 = document.getElementById("btn7");
+	var b8 = document.getElementById("btn8");
+
+	b0.addEventListener("click",function(){
+		if(b0.value == "+")
+			{
+				for (var i = btn0.length - 1; i >= 0; i--) {
+					whichOne(btn0[i]);
+				};
+			}
+		else
+			{
+				alert("只能选择'+'的方格");
+			}
+	},false);
+
+	b1.addEventListener("click",function(){
+		if(b1.value == "+")
+			{
+				for (var i = btn1.length - 1; i >= 0; i--) {
+					whichOne(btn1[i]);
+				};
+			}
+		else
+			alert("只能选择'+'的方格");
+	},false);
+
+	b2.addEventListener("click",function(){
+		if(b2.value == "+")
+			{
+				for (var i = btn2.length - 1; i >= 0; i--) {
+					whichOne(btn2[i]);
+				};
+			}
+		else
+			alert("只能选择'+'的方格");
+	},false);
+
+	b3.addEventListener("click",function(){
+		if(b3.value == "+")
+			{
+				for (var i = btn3.length - 1; i >= 0; i--) {
+					whichOne(btn3[i]);
+				};
+			}
+		else
+			alert("只能选择'+'的方格");
+	},false);
+
+	b4.addEventListener("click",function(){
+		if(b4.value == "+")
+			{
+				for (var i = btn4.length - 1; i >= 0; i--) {
+					whichOne(btn4[i]);
+				};
+			}
+		else
+			alert("只能选择'+'的方格");
+	},false);
+
+	b5.addEventListener("click",function(){
+		if(b5.value == "+")
+			{
+				for (var i = btn5.length - 1; i >= 0; i--) {
+					whichOne(btn5[i]);
+				};
+			}
+		else
+			alert("只能选择'+'的方格");
+	},false);
+
+	b6.addEventListener("click",function(){
+		if(b6.value == "+")
+			{
+				for (var i = btn6.length - 1; i >= 0; i--) {
+					whichOne(btn6[i]);
+				};
+			}
+		else
+			alert("只能选择'+'的方格");
+	},false);
+
+	b7.addEventListener("click",function(){
+		if(b7.value == "+")
+			{
+				for (var i = btn7.length - 1; i >= 0; i--) {
+					whichOne(btn7[i]);
+				};
+			}
+		else
+			alert("只能选择'+'的方格");
+	},false);
+
+	b8.addEventListener("click",function(){
+		if(b8.value == "+")
+			{
+				for (var i = btn8.length - 1; i >= 0; i--) {
+					whichOne(btn8[i]);
+				};
+			}
+		else
+			alert("只能选择'+'的方格");
+	},false);
+
+	function whichOne(who){
+		switch(who){
+			
+			case "btn0":
+				if(b0.value == '+')  b0.value = '-';
+				else b0.value = '+';
+			break;
+			
+			case "btn1":
+				if(b1.value == '+') b1.value = '-';
+				else b1.value = '+';
+			break;
+
+			case "btn2":
+				if(b2.value == '+') b0.value = '-';
+				else b2.value = '+';
+			break;
+
+			case "btn3":
+				if(b3.value == '+') b3.value = '-';
+				else b3.value = '+';
+			break;
+
+			case "btn4":
+			if(b4.value == '+') b4.value = '-';
+				else b4.value = '+';
+			break;
+
+			case "btn5":
+				if(b5.value == '+') b5.value = '-';
+				else b5.value = '+';
+			break;
+
+			case "btn6":
+				if(b6.value == '+') b6.value = '-';
+				else b6.value = '+';
+			break;
+
+			case "btn7":
+				if(b7.value == '+') b7.value = '-';
+				else b7.value = '+';
+			break;
+
+			case "btn8":
+				if(b8.value == '+') b8.value = '-';
+				else b8.value = '+';
+			break;
+		}
+	}
+
+	function winOrLose(){
+		var bNum = [b0, b1, b2, b3, b5, b6, b7, b8];
+		if(b4.value == '-')
+		{
+			var win = true;
+			for (var i = bNum.length - 1; i >= 0; i--) {
+				if(bNum[i].value == '-'){
+					win = false;
+					break;
+				}
+			};
+			if(win == true)
+				alert("恭喜你通过了！");
+		}
+		else
+		{
+			var lose = true;
+			for (var i = bNum.length - 1; i >= 0; i--) {
+				if(bNum[i].value == '+'){
+					lose = false;
+					break;
+				}
+			};
+			if(lose == true)
+				alert("很遗憾你失败了！");
+		}
+
+	}
+
+	</script>
+</body>
+</html>

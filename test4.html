@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>操作DOM</title>
+<script type="text/javascript">
+	function fun1(){
+		alert("Hello world!");
+	}
+
+</script>
+</head>
+<body>
+	<a id = "aid" href="http://baidu.com" onclick = "demo(event)" title = "我是一个成功的男人，你喜欢我么？">百度一下</a>
+	<a id = "aid1">百度一下</a>
+	<p name = "pname">this is  a first p</p>
+	<p name = "pname">this is  second p </p>
+	<button id = "btn1">按钮1</button>
+	<button id = "btn2">按钮2</button>
+	<ul>
+		<li>one</li>
+		<li>two</li>
+		<li>three</li>
+	</ul>
+	<div><button id = "btn3"> 按钮3</button></div>
+	<script type="text/javascript">
+		var pname = document.getElementsByName("pname");  //获取name属性值相同的元素。
+		var btn1 = document.getElementById("btn1");
+		btn1.addEventListener("click", function(){pname[0].innerHTML = "第一个P的内容已经改变了!";}, false); //改变第一个p的内容
+		document.getElementById("btn2").addEventListener("click", function(){pname[1].innerHTML = "第二个P的内容已经改变了!";},false);
+		function demo(event){
+			try{
+			var aid = document.getElementById("aid");
+			var attr = aid.getAttribute("title");
+			pname[0].innerHTML = attr;
+			event.preventDefault();  //阻止a属性行为的发生，比如不能够产生链接	
+		}catch(err){
+			alert(err);
+			event.preventDefault();
+		}
+		}
+
+		function setAttr(){
+			var aid = document.getElementById("aid1");
+			aid.setAttribute("href",'http://www.baidu.com');
+			aid.title = "you are a right";
+			pname[1].innerHTML = aid.getAttribute("title"); //打印a标签的title
+		}
+		setAttr();
+
+		//获取子节点
+		function getChildNode(){
+			var fatherNode = document.getElementsByTagName("ul")[0];
+			childNode = fatherNode.childNodes;
+			// childNode.innerHTML = "改变第一个li的内容";
+			// alert(childNode);
+			childNode[1].innerHTML = "Hello pythoner!"; //空格也算一个节点所以总共7个，所以第一个li在第一位；
+		}
+		getChildNode();
+
+		//得到父节点
+		function getFatherNode(){
+			var btn3 = document.getElementById("btn3");
+			var fatherNode = btn3.parentNode;
+			alert(fatherNode);
+		}
+		document.getElementById("btn3").onclick = getFatherNode;
+
+		//创建新的节点
+		function createNode(){
+			var body = document.body;
+			var input = document.createElement("input");
+			input.type = "button";
+			input.value = "按钮4";
+			input.id = "i1";
+			// body.appendChild(input);  //添加在body的所有子元素后面
+			body.insertBefore(input,document.getElementsByTagName("ul")[0]);    // 添加在指定元素节点的最前面
+		}
+		createNode();
+
+		//删除某个节点
+		function removeNode(){
+			var body = document.body;
+			body.removeChild(document.getElementById("i1"));
+		}
+		removeNode();
+
+		// 获得HtML的宽度
+		function getSize() {
+//			var width = document.documentElement.offsetWidth;	 // document.docuentElement得到的是HTML标签对象
+			var width = (document.body || document.documentElement).offsetWidth  // 为了提高兼容性可以这么写
+			var height = document.documentElement.offsetHeight;  //获取HtmL的高度
+     		alert("width : " + width + "height : " + height );
+			var a = 5 && 6;
+			alert(a);
+		}
+		getSize();
+		
+	</script>
+</body>
+</html>

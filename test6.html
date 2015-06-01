@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>续window对象</title>
+</head>
+<body>
+	<hr>
+	<a href="test7.html">跳转到test7</a>
+	<hr>
+	<button id="btn1" onclick="getForward()">前进</button>
+	<hr>
+	<button onclick="history.go(2)">前进到最后一个页面</button>
+	<script>
+		function getForward(){
+			window.history.forward();
+			
+		}
+		
+	</script>
+</body>
+</html>

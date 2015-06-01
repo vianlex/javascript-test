@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>续集window对象</title>
+</head>
+<body>
+	<a href="test8.html">跳到test8.html</a>
+	<hr />
+	<button id = "btn1" onclick = "getBack()">后退</button>
+	<hr/>
+	<button onclick="history.go(-1)">前进一个页面</button>
+	<hr>
+	<script type="text/javascript">
+		function getBack(){
+			window.history.back();
+		}
+	</script>
+</body>
+</html>
